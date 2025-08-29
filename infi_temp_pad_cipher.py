@@ -13,7 +13,7 @@ class infi_temp_pad:             #class to call later in running loop
         decimal.getcontext().prec = len(string) + 10
         cipher = caesar()
         shift_setup = decimal.Decimal(shift_seed)
-        sqrt_shift = shift_setup.sqrt()
+        sqrt_shift = shift_setup.sqrt()            #Generates irrational number
         sqrt_shift_string = str(sqrt_shift)
         sqrt_shift_string = sqrt_shift_string.replace(".","")
         new_string = ""
@@ -21,12 +21,12 @@ class infi_temp_pad:             #class to call later in running loop
     
             shift = sqrt_shift_string[i]
             shift = int(shift)
-            new_letter = cipher.encode(letter,shift)
+            new_letter = cipher.encode(letter,shift)    #shifts using slice of number
             new_string += new_letter
         return new_string
     
 
-    def infi_temp_pad_decode(self,string,shift_seed):     #function to decode with that generate a new shift key baed off an irration number
+    def infi_temp_pad_decode(self,string,shift_seed):     #function to decode with that generate a new shift key based off an irratational number
         decimal.getcontext().prec = len(string) + 10
         cipher = caesar()
         shift_setup = decimal.Decimal(shift_seed)   
@@ -46,4 +46,5 @@ class infi_temp_pad:             #class to call later in running loop
         string = str(string)
         string = string.lower()
         string = string.replace(" ", "")
+
         return string
